@@ -1,10 +1,15 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace N1C_Movement
 {
+	/// <summary>
+	///     A basic state machine that handles multiple states (also is hierarchical)
+	/// </summary>
 	public abstract class StateMachine<T> where T : StateMachine<T>
 	{
+		/// <summary>
+		///     sets the current active state of the state machine
+		/// </summary>
 		public void SetState(State<T> newState)
 		{
 			if (State == newState) return;
@@ -20,6 +25,9 @@ namespace N1C_Movement
 		public State<T> State { get; private set; }
 	}
 
+	/// <summary>
+	///     A basic abstract state class that contains handlers as callbacks for behaviours
+	/// </summary>
 	public abstract class State<T> where T : StateMachine<T>
 	{
 		protected State(T stateMachine) => this.stateMachine = stateMachine;
@@ -35,6 +43,9 @@ namespace N1C_Movement
 		protected readonly T stateMachine;
 	}
 
+	/// <summary>
+	///     A basic root state that handles multiple sub states
+	/// </summary>
 	public abstract class RootState<T> : State<T> where T : StateMachine<T>
 	{
 		protected RootState(T stateMachine) : base(stateMachine)

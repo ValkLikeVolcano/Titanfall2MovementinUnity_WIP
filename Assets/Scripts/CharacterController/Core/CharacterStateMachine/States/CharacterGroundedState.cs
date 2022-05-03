@@ -12,7 +12,9 @@ namespace N1C_Movement
 		{
 			Debug.Log("[state enter] grounded");
 
-			SetState(new CharacterWalkState(stateMachine));
+			// walk
+			SetState(new CharacterMoveState(stateMachine.pilotData.maxStableWalkSpeed, stateMachine));
+			// SetState(new CharacterSlideState(stateMachine));
 			base.EnteredHandler();
 		}
 
@@ -21,7 +23,7 @@ namespace N1C_Movement
 			// if stable on a ground (the standing not angled to be recognized as a wall) 
 			if (stateMachine.motor.GroundingStatus.IsStableOnGround) return;
 			// else
-			
+
 			SetState(new CharacterMidAirState(stateMachine));
 		}
 

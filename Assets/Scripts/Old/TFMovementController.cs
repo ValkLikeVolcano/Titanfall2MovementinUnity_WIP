@@ -320,6 +320,7 @@ namespace N1C_Movement
 			}
 
 			#endregion
+			
 			#region Wallrun Movement
 
 			else if (_isWallrunning)
