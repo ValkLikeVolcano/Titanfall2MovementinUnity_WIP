@@ -16,7 +16,7 @@ namespace N1C_Movement
         public bool CrouchUp;
     }
 
-    public class TFMovementController : MonoBehaviour, ICharacterController
+	public class TFMovementController : MonoBehaviour, ICharacterController
     {
         private KinematicCharacterMotor Motor;
         public Pilots p;
