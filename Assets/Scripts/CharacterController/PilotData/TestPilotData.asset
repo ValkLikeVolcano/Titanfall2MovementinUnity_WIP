@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adab58e993e0d38429442fb7e2d3356b, type: 3}
+  m_Name: TestPilotData
+  m_EditorClassIdentifier: 
+  maxStableCrouchSpeed: 5
+  maxStableWalkSpeed: 10
+  maxStableSprintSpeed: 15
+  stableMovementSharpness: 15
+  orientationSharpness: 10
+  crouchDownSpeed: 10
+  maxStableSlideSpeed: 20
+  slopeAccelerationSpeed: 10
+  slideDrag: 0.7
+  slopeUpDrag: 1.2
+  minSlideHeightDiff: 0.05
+  slideGroundStickAngle: 60
+  maxAirMoveSpeed: 15
+  airAccelerationSpeed: 15
+  drag: 0.1
+  allowJumpingWhenSliding: 0
+  sprintJumpUpSpeed: 10
+  walkJumpUpSpeed: 10
+  crouchJumpUpSpeed: 5
+  sprintForwardSpeed: 10
+  walkForwardSpeed: 10
+  crouchForwardSpeed: 5
+  jumpPreGroundingGraceTime: 0.1
+  jumpPostGroundingGraceTime: 0.1
+  useDoubleJump: 0
+  useCustomDJumpForces: 0
+  dJumpUpSpeed: 10
+  dJumpForwardSpeed: 10
+  useWallJump: 0
+  wallBounceForce: 10
+  wallJumpUpSpeed: 5
+  useWallRun: 0
+  maxWallDistance: 0.8
+  maxStableWallSpeed: 30
+  wallAcceleration: 10
+  wallRunTime: 3
+  wallStickiness: 40
+  wallRunBanTime: 1
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  stunThreshold: 55
+  stunStrength: 0.2
+  stunDuration: 0.2
+  ignoredColliders: []
+  bonusOrientationSharpness: 10
+  gravity: {x: 0, y: -30, z: 0}
+  crouchedCapsuleHeight: 1
