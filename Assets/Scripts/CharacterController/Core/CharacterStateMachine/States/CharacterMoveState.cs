@@ -8,16 +8,47 @@ namespace N1C_Movement
 	/// </summary>
 	public class CharacterMoveState : State<CharacterStateMachine>
 	{
-		public CharacterMoveState(float maxStableSpeed, CharacterStateMachine stateMachine) : base(stateMachine) => _maxStableSpeed = maxStableSpeed;
+		public CharacterMoveState(CharacterStateMachine stateMachine) : base(stateMachine)
+		{
+		}
 
 		public override void EnteredHandler()
 		{
-			Debug.Log("[state enter] move {}");
+			Debug.Log("[state enter] move");
+		}
+
+		public override void Update()
+		{
+			UpdateInputs();
 		}
 
 		public override void UpdateVelocity(ref Vector3 velocity, float deltaTime)
 		{
-			// that was really cool
+			DoMove(ref velocity, deltaTime, GetMaxStableSpeed());
+		}
+
+		public override void ExitHandler()
+		{
+			Debug.Log("[state exit] move");
+		}
+
+		const float DEFAULT_MAX_STABLE_DENIVELATION_ANGLE = 180f;
+
+		bool _isSprinting;
+
+		void UpdateInputs()
+		{
+			PlayerCharacterInputs inputs = stateMachine.Input;
+
+			if (inputs.sprintDown)
+				_isSprinting = true;
+
+			else if (inputs.sprintUp)
+				_isSprinting = false;
+		}
+
+		void DoMove(ref Vector3 velocity, float deltaTime, float maxStableMoveSpeed)
+		{
 			Vector3 moveInputVector = CalculateMoveVector();
 
 			KinematicCharacterMotor motor = stateMachine.motor;
@@ -31,7 +62,7 @@ namespace N1C_Movement
 			{
 				// Take the normal from where we're coming from
 				Vector3 groundPointToCharacter = motor.TransientPosition - motor.GroundingStatus.GroundPoint;
-				
+
 				if (Vector3.Dot(velocity, groundPointToCharacter) >= 0f)
 					effectiveGroundNormal = motor.GroundingStatus.OuterGroundNormal;
 				else
@@ -44,20 +75,18 @@ namespace N1C_Movement
 			// Calculate target velocity
 			Vector3 inputRight = Vector3.Cross(moveInputVector, motor.CharacterUp);
 			Vector3 reorientedInput = Vector3.Cross(effectiveGroundNormal, inputRight).normalized * moveInputVector.magnitude;
-			Vector3 targetMovementVelocity = reorientedInput * _maxStableSpeed;
+			Vector3 targetMovementVelocity = reorientedInput * maxStableMoveSpeed;
 
 			// Smooth movement Velocity
 			velocity = Vector3.Lerp(velocity, targetMovementVelocity, 1f - Mathf.Exp(-stateMachine.pilotData.stableMovementSharpness * deltaTime));
 		}
 
-		public override void ExitHandler()
+		float GetMaxStableSpeed()
 		{
-			Debug.Log("[state exit] move");
+			PilotData pilotData = stateMachine.pilotData;
+
+			return _isSprinting ? pilotData.maxStableSprintSpeed : pilotData.maxStableWalkSpeed;
 		}
-
-		const float DEFAULT_MAX_STABLE_DENIVELATION_ANGLE = 180f;
-
-		readonly float _maxStableSpeed;
 
 		Vector3 CalculateMoveVector()
 		{

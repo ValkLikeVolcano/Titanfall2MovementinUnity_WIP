@@ -577,7 +577,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pilotData: {fileID: 11400000, guid: 8b8e9b298dab12a4f84484207cf540ef, type: 2}
-  _cameraFollowPoint: {fileID: 2127031870}
 --- !u!4 &519324611
 Transform:
   m_ObjectHideFlags: 0
@@ -2449,7 +2448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6cafd78b4d4c78b50fba6e0c3b1439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterController: {fileID: 519324610}
+  _tfCharacterController: {fileID: 519324610}
   _movementCamera: {fileID: 330585548}
 --- !u!4 &2139116951
 Transform:

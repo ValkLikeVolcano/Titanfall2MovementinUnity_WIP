@@ -31,8 +31,8 @@ namespace N1C_Movement
 		const string HORIZONTAL_INPUT = "Horizontal";
 		const string VERTICAL_INPUT   = "Vertical";
 
-		[SerializeField] CharacterController _characterController;
-		[SerializeField] TFMovementCamera    _movementCamera;
+		[SerializeField] TFCharacterController _tfCharacterController;
+		[SerializeField] TFMovementCamera      _movementCamera;
 
 		void UpdateCameraInput()
 		{
@@ -40,18 +40,18 @@ namespace N1C_Movement
 			float mouseLookAxisUp = Input.GetAxisRaw("Mouse Y");
 			float mouseLookAxisRight = Input.GetAxisRaw("Mouse X");
 
-			Vector3 lookInputVector = new Vector3(mouseLookAxisRight, mouseLookAxisUp, 0f);
+			var lookInputVector = new Vector3(mouseLookAxisRight, mouseLookAxisUp, 0f);
 
 			//Prevent moving the camera while the cursor isn't locked
 			if (Cursor.lockState != CursorLockMode.Locked)
 				lookInputVector = Vector3.zero;
-			
+
 			_movementCamera.UpdateWithInput(Time.deltaTime, lookInputVector);
 		}
 
 		void UpdateCharacterInput()
 		{
-			PlayerCharacterInputs characterInputs = new PlayerCharacterInputs(
+			var characterInputs = new PlayerCharacterInputs(
 				Input.GetAxisRaw(VERTICAL_INPUT),
 				Input.GetAxisRaw(HORIZONTAL_INPUT),
 				_movementCamera.Transform.rotation,
@@ -61,8 +61,8 @@ namespace N1C_Movement
 				Input.GetKeyDown(KeyCode.C),
 				Input.GetKeyUp(KeyCode.C)
 			);
-			
-			_characterController.SetInputs(characterInputs);
+
+			_tfCharacterController.SetInputs(characterInputs);
 		}
 	}
 }

@@ -13,7 +13,8 @@ namespace N1C_Movement
 			Debug.Log("[state enter] grounded");
 
 			// walk
-			SetState(new CharacterMoveState(stateMachine.pilotData.maxStableWalkSpeed, stateMachine));
+			SetState(new CharacterMoveState(stateMachine));
+			
 			// SetState(new CharacterSlideState(stateMachine));
 			base.EnteredHandler();
 		}

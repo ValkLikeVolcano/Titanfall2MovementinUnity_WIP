@@ -4,12 +4,27 @@ using UnityEngine;
 namespace N1C_Movement
 {
 	[RequireComponent(typeof(KinematicCharacterMotor))]
-	public class CharacterController : MonoBehaviour, ICharacterController
+	public class TFCharacterController : MonoBehaviour, ICharacterController
 	{
 		void Awake()
 		{
 			_motor = GetComponent<KinematicCharacterMotor>();
-			_motor.CharacterController = this; // sussy baka
+			
+			/*
+			 * Problem:
+			 * you are passing high level control down to a low level control
+			 * Thus losing control of your character controller
+			 * 
+			 * Fix:
+			 * there is a potential fix, you can either instead, put the interfaces
+			 * into the motor, and allow the motor for us to modify the internals instead
+			 * The good thing for this is we can modify the motor all we want
+			 * but also won't affect any of it's movement code and updates, yey!
+			 *
+			 * but for now, let's just write state machine!
+			 * -- yours truly, Environment.FailFast("Sofa");
+			 */
+			_motor.CharacterController = this;
 
 			_stateMachine = new CharacterStateMachine(_pilotData, _motor);
 		}
@@ -30,8 +45,6 @@ namespace N1C_Movement
 		}
 
 		[SerializeField] PilotData _pilotData;
-
-		[SerializeField] Transform _cameraFollowPoint;
 
 		KinematicCharacterMotor _motor;
 
