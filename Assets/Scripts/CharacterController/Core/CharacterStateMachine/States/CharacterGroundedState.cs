@@ -8,30 +8,23 @@ namespace N1C_Movement
 		{
 		}
 
-		public override void EnteredHandler()
+		protected override void ActivateHandler()
 		{
-			Debug.Log("[state enter] grounded");
-
 			// walk
-			SetState(new CharacterMoveState(stateMachine));
+			SetChildState(new CharacterGroundMoveAndJumpState(stateMachine));
 			
 			// SetState(new CharacterSlideState(stateMachine));
-			base.EnteredHandler();
 		}
 
-		public override void BeforeCharacterUpdate(float deltaTime)
+		protected override string GetRootDescription() => "Grounded State";
+
+		protected override void BeforeCharacterUpdateRoot(float deltaTime)
 		{
 			// if stable on a ground (the standing not angled to be recognized as a wall) 
 			if (stateMachine.motor.GroundingStatus.IsStableOnGround) return;
 			// else
-
-			SetState(new CharacterMidAirState(stateMachine));
-		}
-
-		public override void ExitHandler()
-		{
-			Debug.Log("[state exit] grounded");
-			base.ExitHandler();
+			
+			stateMachine.SetState(new CharacterMidAirState(stateMachine));
 		}
 	}
 }

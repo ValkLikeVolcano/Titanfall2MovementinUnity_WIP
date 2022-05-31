@@ -10,20 +10,27 @@ namespace N1C_Movement
 		{
 		}
 
-		public override void EnteredHandler()
+		protected override void ActivateHandler()
 		{
 			_deltaHeight = stateMachine.motor.transform.position.y;
 		}
 
 		public override void UpdateVelocity(ref Vector3 velocity, float deltaTime)
 		{
+			DoSlide(ref velocity, deltaTime);
+		}
+
+		public override string GetEditorDescription() => "Slide State";
+
+		void DoSlide(ref Vector3 velocity, float deltaTime)
+		{
 			KinematicCharacterMotor motor = stateMachine.motor;
 			PilotData pilotData = stateMachine.pilotData;
 
 			_deltaHeight -= stateMachine.motor.transform.position.y;
 
-			//Increase Ground Stickyness
-			// todo: cannot comprehend the pressure that the understanding of a holy ground stickyness gives :)
+			//Increase Ground Stickiness
+			// note: cannot comprehend the pressure that the understanding of a holy ground Stickiness gives :)
 			// motor.MaxStableDenivelationAngle = p.slideGroundStickAngle;
 
 			Vector3 effectiveGroundNormal = motor.GroundingStatus.GroundNormal;

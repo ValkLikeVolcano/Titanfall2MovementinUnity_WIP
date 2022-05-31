@@ -10,9 +10,6 @@ namespace N1C_Movement
 		void Start()
 		{
 			Cursor.lockState = CursorLockMode.Locked;
-
-			// Todo: move this responsibility into camera instead
-			// _movementCamera.SetFollowTransform(_character.CameraFollowPoint);
 		}
 
 		void Update()

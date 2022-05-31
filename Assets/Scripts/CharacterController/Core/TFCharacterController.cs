@@ -6,10 +6,16 @@ namespace N1C_Movement
 	[RequireComponent(typeof(KinematicCharacterMotor))]
 	public class TFCharacterController : MonoBehaviour, ICharacterController
 	{
+		public string GetEditorDescription() => _stateMachine?.GetEditorDescription();
+		
+		public void SetInputs(PlayerCharacterInputs inputs)
+		{
+			_stateMachine.SetInputs(inputs);
+		}
 		void Awake()
 		{
 			_motor = GetComponent<KinematicCharacterMotor>();
-			
+
 			/*
 			 * Problem:
 			 * you are passing high level control down to a low level control
@@ -39,11 +45,6 @@ namespace N1C_Movement
 			_stateMachine.Update();
 		}
 
-		public void SetInputs(PlayerCharacterInputs inputs)
-		{
-			_stateMachine.SetInputs(inputs);
-		}
-
 		[SerializeField] PilotData _pilotData;
 
 		KinematicCharacterMotor _motor;
@@ -59,10 +60,7 @@ namespace N1C_Movement
 
 		public void BeforeCharacterUpdate(float deltaTime)
 		{
-			if (_motor.GroundingStatus.IsStableOnGround)
-			{
-				
-			}
+			_stateMachine.BeforeCharacterUpdate(deltaTime);
 		}
 
 		public bool IsColliderValidForCollisions(Collider collider) => true;

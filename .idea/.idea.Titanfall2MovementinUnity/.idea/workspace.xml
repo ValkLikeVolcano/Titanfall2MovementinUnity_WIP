@@ -2,13 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="373210d9-0d52-4bba-a84c-63d146ed890d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterCalculatedInputs.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterCalculatedInputs.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterAirMoveState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterAirMoveState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterWallState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterWallState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/Editor/TFCharacterControllerEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/Editor/TFCharacterControllerEditor.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Titanfall2MovementinUnity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Titanfall2MovementinUnity/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/TFCharacterController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/TFCharacterController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/CharacterStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/CharacterStateMachine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterGroundedState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterMoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterMoveState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterMidAirState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterMidAirState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterMoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterGroundMoveAndJumpState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterMoveState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterGroundMoveAndJumpState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterSlideState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterSlideState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/StateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/TFCharacterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/TFCharacterController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +30,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_PackageResourceImporter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.6.5/Runtime/Editor/BurstReflection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/EventSystem/SelectableTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/BurstILPostProcessor.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -27,6 +52,15 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="settings.editor.selected.configurable" value="inlay.hints" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
@@ -61,12 +95,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f33a1f91-2c88-4759-8eea-8f80f1d8a535" name="Changes" comment="" />
+      <changelist id="373210d9-0d52-4bba-a84c-63d146ed890d" name="Changes" comment="" />
       <created>1651572335111</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1651572335111</updated>
       <workItem from="1651572345016" duration="206000" />
+      <workItem from="1653967161933" duration="9543000" />
     </task>
     <servers />
   </component>
@@ -75,7 +110,7 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
-  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>

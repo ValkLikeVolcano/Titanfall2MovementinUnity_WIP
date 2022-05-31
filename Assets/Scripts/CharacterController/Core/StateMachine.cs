@@ -15,15 +15,20 @@ namespace N1C_Movement
 			if (State == newState) return;
 			// else
 
-			State?.ExitHandler();
+			State?.Deactivate();
 
 			State = newState;
 
-			State?.EnteredHandler();
+			State?.Activate();
 		}
+
+		public string GetEditorDescription() =>
+			State.GetEditorDescription();
 
 		public State<T> State { get; private set; }
 	}
+
+	// todo: clean up states where states should have implemented enter, exit (instead of letting state machine directly call handlers)
 
 	/// <summary>
 	///     A basic abstract state class that contains handlers as callbacks for behaviours
@@ -32,15 +37,37 @@ namespace N1C_Movement
 	{
 		protected State(T stateMachine) => this.stateMachine = stateMachine;
 
-		public virtual void EnteredHandler() { }
-		public virtual void Update() { }
+		public virtual void Activate()
+		{
+			if (_active) return;
+			// else
 
-		public virtual void ExitHandler() { }
+			_active = true;
+			ActivateHandler();
+		}
+
+		public virtual void Deactivate()
+		{
+			if (!_active) return;
+
+			// else
+			_active = false;
+			DeactivateHandler();
+		}
+
+		public virtual void Update() { }
 		public virtual void BeforeCharacterUpdate(float deltaTime) { }
 
 		public virtual void UpdateVelocity(ref Vector3 velocity, float deltaTime) { }
 
+		public virtual string GetEditorDescription() => "== NOT IMPLEMENTED ==";
+
 		protected readonly T stateMachine;
+
+		bool _active;
+
+		protected virtual void ActivateHandler() { }
+		protected virtual void DeactivateHandler() { }
 	}
 
 	/// <summary>
@@ -52,47 +79,61 @@ namespace N1C_Movement
 		{
 		}
 
-		public override void EnteredHandler()
+		public override void Activate()
 		{
-			_active = true;
-
-			State?.EnteredHandler();
+			// parent activates before child
+			base.Activate();
+			State?.Activate();
 		}
 
-		public override void Update()
+		public override void Deactivate()
 		{
+			// child deactivates before root
+			State?.Deactivate();
+			base.Deactivate();
+		}
+
+		public sealed override void Update()
+		{
+			UpdateRoot();
 			State?.Update();
 		}
 
-		public override void ExitHandler()
+		public sealed override void BeforeCharacterUpdate(float deltaTime)
 		{
-			_active = false;
-
-			State?.ExitHandler();
+			BeforeCharacterUpdateRoot(deltaTime);
+			State?.BeforeCharacterUpdate(deltaTime);
 		}
 
-		public override void BeforeCharacterUpdate(float deltaTime) { }
-
-		public override void UpdateVelocity(ref Vector3 velocity, float deltaTime)
+		public sealed override void UpdateVelocity(ref Vector3 velocity, float deltaTime)
 		{
+			UpdateVelocityRoot(ref velocity, deltaTime);
 			State?.UpdateVelocity(ref velocity, deltaTime);
 		}
 
-		public void SetState(State<T> state)
+		public void SetChildState(State<T> state)
 		{
 			if (State == state) return;
 			// else
 
-			State?.ExitHandler();
+			State?.Deactivate();
 
 			State = state;
 
-			if (_active)
-				State?.EnteredHandler();
+			State?.Activate();
 		}
 
+		public sealed override string GetEditorDescription() =>
+			$"[Root]{GetRootDescription()}\n\t{State?.GetEditorDescription()}";
+
+		protected virtual string GetRootDescription() => "== ROOT NOT IMPLEMENTED ==";
+		
 		protected State<T> State { get; private set; }
 
-		bool _active;
+		protected virtual void UpdateRoot() { }
+
+		protected virtual void BeforeCharacterUpdateRoot(float deltaTime) { }
+
+		protected virtual void UpdateVelocityRoot(ref Vector3 velocity, float deltaTime) { }
 	}
 }
