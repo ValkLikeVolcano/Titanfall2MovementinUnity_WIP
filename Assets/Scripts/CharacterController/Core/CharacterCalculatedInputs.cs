@@ -19,18 +19,17 @@ namespace N1C_Movement
 			MoveVector = cameraPlanarRotation * moveInputVector;
 			LookVector = cameraPlanarDirection;
 
-			IsSprinting = false;
-
 			if (inputs.sprintDown)
-				IsSprinting = true;
+				SprintRequest = true;
 			
 			else if (inputs.sprintUp)
-				IsSprinting = false;
+				SprintRequest = false;
 		}
 
 		public Vector3 MoveVector { get; private set; }
 		public Vector3 LookVector { get; private set; }
 
-		public bool IsSprinting { get; private set; }
+		public bool SprintRequest { get; private set; }
+		public bool CanSprint { get; private set; }
 	}
 }

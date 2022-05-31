@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace N1C_Movement
+﻿namespace N1C_Movement
 {
 	public class CharacterGroundedState : RootState<CharacterStateMachine>
 	{
@@ -10,7 +8,7 @@ namespace N1C_Movement
 
 		protected override void ActivateHandler()
 		{
-			// walk
+			// move
 			SetChildState(new CharacterGroundMoveAndJumpState(stateMachine));
 			
 			// SetState(new CharacterSlideState(stateMachine));
@@ -18,9 +16,9 @@ namespace N1C_Movement
 
 		protected override string GetRootDescription() => "Grounded State";
 
-		protected override void BeforeCharacterUpdateRoot(float deltaTime)
+		protected override void PostGroundingUpdateRoot(float deltaTime)
 		{
-			// if stable on a ground (the standing not angled to be recognized as a wall) 
+			// if stable on a ground (the standing not angled to be recognized as a wall)
 			if (stateMachine.motor.GroundingStatus.IsStableOnGround) return;
 			// else
 			

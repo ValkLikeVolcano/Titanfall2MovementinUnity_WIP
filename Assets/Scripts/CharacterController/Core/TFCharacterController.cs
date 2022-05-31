@@ -6,12 +6,24 @@ namespace N1C_Movement
 	[RequireComponent(typeof(KinematicCharacterMotor))]
 	public class TFCharacterController : MonoBehaviour, ICharacterController
 	{
-		public string GetEditorDescription() => _stateMachine?.GetEditorDescription();
-		
+		public bool TryGetEditorDescription(out string description)
+		{
+			if (_stateMachine == null)
+			{
+				description = string.Empty;
+				return false;
+			}
+
+			description = _stateMachine.GetEditorDescription();
+			
+			return true;
+		}
+
 		public void SetInputs(PlayerCharacterInputs inputs)
 		{
-			_stateMachine.SetInputs(inputs);
+			_stateMachine.SetAndCalculateInputs(inputs);
 		}
+		
 		void Awake()
 		{
 			_motor = GetComponent<KinematicCharacterMotor>();
@@ -82,7 +94,7 @@ namespace N1C_Movement
 
 		public void PostGroundingUpdate(float deltaTime)
 		{
-
+			_stateMachine.PostGroundingUpdate(deltaTime);
 		}
 
 		public void ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint,

@@ -112,6 +112,6 @@ namespace N1C_Movement
 			return GetIsSprinting() ? pilotData.sprintForwardSpeed : pilotData.walkForwardSpeed;
 		}
 
-		bool GetIsSprinting() => stateMachine.calculatedInputs.IsSprinting;
+		bool GetIsSprinting() => stateMachine.calculatedInputs.SprintRequest;
 	}
 }

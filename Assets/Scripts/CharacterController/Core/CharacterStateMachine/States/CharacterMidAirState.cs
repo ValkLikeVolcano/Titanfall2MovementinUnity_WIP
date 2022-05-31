@@ -29,15 +29,18 @@ namespace N1C_Movement
 
 		protected override void BeforeCharacterUpdateRoot(float deltaTime)
 		{
+			if (CheckWalls(out _))
+			{
+				stateMachine.SetState(new CharacterWallState(stateMachine));
+			}
+		}
+
+		protected override void PostGroundingUpdateRoot(float deltaTime)
+		{
 			// if standing on stable wall
 			if (stateMachine.motor.GroundingStatus.IsStableOnGround)
 			{
 				stateMachine.SetState(new CharacterGroundedState(stateMachine));
-			}
-
-			if (CheckWalls(out _))
-			{
-				stateMachine.SetState(new CharacterWallState(stateMachine));
 			}
 		}
 

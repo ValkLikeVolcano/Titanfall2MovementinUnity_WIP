@@ -59,6 +59,7 @@ namespace N1C_Movement
 		public virtual void BeforeCharacterUpdate(float deltaTime) { }
 
 		public virtual void UpdateVelocity(ref Vector3 velocity, float deltaTime) { }
+		public virtual void PostGroundingUpdate(float deltaTime) { }
 
 		public virtual string GetEditorDescription() => "== NOT IMPLEMENTED ==";
 
@@ -111,6 +112,12 @@ namespace N1C_Movement
 			State?.UpdateVelocity(ref velocity, deltaTime);
 		}
 
+		public sealed override void PostGroundingUpdate(float deltaTime)
+		{
+			PostGroundingUpdateRoot(deltaTime);
+			State?.PostGroundingUpdate(deltaTime);
+		}
+
 		public void SetChildState(State<T> state)
 		{
 			if (State == state) return;
@@ -126,14 +133,16 @@ namespace N1C_Movement
 		public sealed override string GetEditorDescription() =>
 			$"[Root]{GetRootDescription()}\n\t{State?.GetEditorDescription()}";
 
-		protected virtual string GetRootDescription() => "== ROOT NOT IMPLEMENTED ==";
-		
 		protected State<T> State { get; private set; }
+
+		protected virtual string GetRootDescription() => "== ROOT NOT IMPLEMENTED ==";
 
 		protected virtual void UpdateRoot() { }
 
-		protected virtual void BeforeCharacterUpdateRoot(float deltaTime) { }
-
 		protected virtual void UpdateVelocityRoot(ref Vector3 velocity, float deltaTime) { }
+
+		protected virtual void PostGroundingUpdateRoot(float deltaTime) { }
+
+		protected virtual void BeforeCharacterUpdateRoot(float deltaTime) { }
 	}
 }

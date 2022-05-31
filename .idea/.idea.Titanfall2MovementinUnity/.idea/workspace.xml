@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="373210d9-0d52-4bba-a84c-63d146ed890d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterCalculatedInputs.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterCalculatedInputs.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterAirMoveState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterAirMoveState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterWallState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterWallState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/Editor/TFCharacterControllerEditor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/Editor/TFCharacterControllerEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterCrouchState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterCrouchState.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Titanfall2MovementinUnity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Titanfall2MovementinUnity/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterCalculatedInputs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterCalculatedInputs.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/CharacterStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/CharacterStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterGroundMoveAndJumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterGroundMoveAndJumpState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterGroundedState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterMidAirState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterMidAirState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterMoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterGroundMoveAndJumpState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterMoveState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterGroundMoveAndJumpState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterSlideState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/CharacterStateMachine/States/CharacterSlideState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/Editor/TFCharacterControllerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/Editor/TFCharacterControllerEditor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/StateMachine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/TFCharacterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterController/Core/TFCharacterController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
@@ -59,7 +52,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="rider.run.widget.enabled.cache" value="false" />
-    <property name="settings.editor.selected.configurable" value="inlay.hints" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -101,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651572335111</updated>
       <workItem from="1651572345016" duration="206000" />
-      <workItem from="1653967161933" duration="9543000" />
+      <workItem from="1653967161933" duration="15921000" />
     </task>
     <servers />
   </component>

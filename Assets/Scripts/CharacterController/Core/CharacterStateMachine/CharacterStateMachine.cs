@@ -13,7 +13,6 @@ namespace N1C_Movement
 
 		public void Update()
 		{
-			calculatedInputs.Update(in _inputs, motor);
 			State?.Update();
 		}
 
@@ -26,13 +25,22 @@ namespace N1C_Movement
 		{
 			State?.BeforeCharacterUpdate(deltaTime);
 		}
+		
+		public void PostGroundingUpdate(float deltaTime)
+		{
+			State?.PostGroundingUpdate(deltaTime);
+		}
 
 		public void Start()
 		{
 			SetState(new CharacterMidAirState(this));
 		}
 
-		public void SetInputs(PlayerCharacterInputs inputs) => _inputs = inputs;
+		public void SetAndCalculateInputs(PlayerCharacterInputs inputs)
+		{
+			_inputs = inputs;
+			calculatedInputs.Update(in _inputs, motor);
+		}
 
 		public PlayerCharacterInputs Inputs => _inputs;
 
@@ -41,6 +49,8 @@ namespace N1C_Movement
 		public readonly PilotData pilotData;
 
 		public readonly KinematicCharacterMotor motor;
+		
+		public readonly Transform meshRoot;
 
 		PlayerCharacterInputs _inputs;
 	}

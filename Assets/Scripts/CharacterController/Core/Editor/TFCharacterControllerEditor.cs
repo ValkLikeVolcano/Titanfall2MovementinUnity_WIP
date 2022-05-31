@@ -11,17 +11,16 @@ namespace KinematicCharacterController
 		{
 			base.OnInspectorGUI();
 
-			if (target == null) return;
-
 			DoStateMachineStateDescription();
 		}
 		void DoStateMachineStateDescription()
 		{
 			var controller = (TFCharacterController)target;
-			
-			GUILayout.Label("== STATE MACHINE ==");
 
-			GUILayout.Label(controller.GetEditorDescription());
+			if (controller.TryGetEditorDescription(out string description))
+			{
+				GUILayout.Label(description, EditorStyles.helpBox);
+			}
 		}
 	}
 }
