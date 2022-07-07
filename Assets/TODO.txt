@@ -1,0 +1,29 @@
+no up down,
+down button lets you go of the wall
+around 3 sec wall time
+negative grav at start, than increasingly stronger grav till end
+slow camtilt revert while on wall
+no backwards sprint
+no min velocity on wall
+Look rot influences wall climb angle(look down to move down)
+slide acceleration curve - accelerate / decelerate
+slide up really strong drag
+slide down not too much more acceleration than standart (no drag?)
+-Melee (initial sphere/Box Check) if hit, move towards and rotate cam (punch ray for damage)
+Animation Controller
+-Ziplines
+dynamic cam rotation on wall
+-Ledge Hanging
+Faster Uncrouch
+TopRayCheck
+-Climb
+-mantle(kinda)
+-Grapple
+-Stim
+dont Uncrouch on jump (if crouching dont jump, just uncrouch, if sliding, stay crouching midair)
+Ban wall Normal
+Check ground normal for sliding
+slide stafing (briefly)
+Crouch Midair
+strave lurch
+WindowPull
